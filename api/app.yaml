@@ -1,0 +1,19 @@
+runtime: go
+env: flex
+service: api
+automatic_scaling:
+    min_num_instances: 1
+    max_num_instances: 2
+    cool_down_period_sec: 180
+    cpu_utilization:
+        target_utilization: 0.5
+resources:
+    cpu: 1
+    memory_gb: 0.5
+    disk_size_gb: 10
+env_variables:
+    ENV: Production
+network:
+    forwarded_ports:
+      - 8082:8082/tcp # testing to see if it works
+
